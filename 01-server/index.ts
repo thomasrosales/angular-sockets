@@ -1,5 +1,10 @@
-'use strict';
+import Server from './classes/server';
+import router from './routes/router';
 
-const test_name = 'Fernando';
+const server = new Server();
 
-console.log(`My name is ${test_name}`);
+server.app.use('/', router);
+
+server.start(() => {
+  console.log(`Server Running: [PORT: ${server.port}]`);
+});

@@ -1,2 +1,3 @@
 nodemon .\index.js 
+nodemon dist/
 tsc -w

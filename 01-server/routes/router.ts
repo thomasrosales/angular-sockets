@@ -14,9 +14,26 @@ router.get('/messages', (request: Request, response: Response) => {
 });
 
 router.post('/messages', (request: Request, response: Response) => {
+  const body = request.body.cuerpo;
+  const from = request.body.from;
+
   response.json({
     ok: true,
-    message: '[POST] Everything good.',
+    body,
+    from,
+  });
+});
+
+router.post('/messages/:id', (request: Request, response: Response) => {
+  const body = request.body.cuerpo;
+  const from = request.body.from;
+  const id = request.params.id;
+
+  response.json({
+    ok: true,
+    body,
+    from,
+    id,
   });
 });
 

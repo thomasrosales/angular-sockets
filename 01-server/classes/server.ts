@@ -3,8 +3,6 @@ import { SERVER_PORT } from '../global/environment';
 import socketIO from 'socket.io';
 import http from 'http';
 
-let webSocketIO = require('socket.io');
-
 export default class Server {
   private static _instance: Server;
 
@@ -17,7 +15,7 @@ export default class Server {
     this.app = express();
     this.port = SERVER_PORT;
     this.httpServer = new http.Server(this.app);
-    this.io = webSocketIO(this.httpServer);
+    this.io = require('socket.io')(this.httpServer);
 
     this.listenToSockets();
   }

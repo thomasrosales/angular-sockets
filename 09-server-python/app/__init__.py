@@ -25,7 +25,7 @@ def create_app(environment="development"):
     # MODULES
 
     with app.app_context():
-        from routes.routes import websocket
+        from websocket.websocket import websocket
 
     # BLUEPRINT
 

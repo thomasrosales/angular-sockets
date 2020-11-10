@@ -21,4 +21,10 @@ export class WebsocoketService {
       this.socketStatus = false;
     });
   }
+
+  // tslint:disable-next-line: ban-types
+  emit(event: string, payload?: any, callback?: Function): void {
+    // EMIT EVENT TO SERVER
+    this.socket.emit(event, payload, callback);
+  }
 }

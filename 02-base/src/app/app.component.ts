@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { WebsocoketService } from './services/websocoket.service';
+import { ChatService } from './services/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,6 @@ import { WebsocoketService } from './services/websocoket.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'base';
-
   constructor(public webSocketService: WebsocoketService) {}
 
   ngOnInit(): void {}

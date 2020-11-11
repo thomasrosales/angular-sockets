@@ -32,15 +32,15 @@ def create_app(environment="development"):
     app.register_blueprint(websocket, url_prefix="/")
 
     # INIT DB WITH CONTEXT
-    with app.app_context():
-        from app import database
+    # with app.app_context():
+    #     from app import database
 
-        database.init_db()
+    #     database.init_db()
 
-    from app.database import Session
+    # from app.database import Session
 
-    @app.teardown_appcontext
-    def shutdown_session(exception=None):
-        Session.remove()
+    # @app.teardown_appcontext
+    # def shutdown_session(exception=None):
+    #     Session.remove()
 
     return app

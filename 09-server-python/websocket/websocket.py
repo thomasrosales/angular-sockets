@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from utils.requests import get_url_params
 from flask_cors import CORS
+from flask import jsonify
 
 
 websocket = Blueprint(
@@ -13,6 +14,6 @@ CORS(websocket)
 # Create your end-points here.
 
 
-@websocket.route("/", methods=["POST"])
+@websocket.route("healthcheck", methods=["GET"])
 def test():
-    pass
+    return jsonify({"[WORKING]": "OK, 200"}), 200

@@ -1,5 +1,7 @@
 from flask_socketio import SocketIO, emit, disconnect, Namespace
+import eventlet
 
+eventlet.monkey_patch()
 socket_io = SocketIO()
 
 
@@ -31,5 +33,5 @@ socket_io.on_namespace(MessageNameSpace("/test"))
 
 def init_socket(app):
     # SOCKET IO
-    socket_io.init_app(app, cors_allowed_origins="*")
+    socket_io.init_app(app, async_mode="eventlet", cors_allowed_origins="*")
     return socket_io

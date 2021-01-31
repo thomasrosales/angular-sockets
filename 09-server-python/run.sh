@@ -4,7 +4,7 @@ FLASKDIR=/home/app/web
 SOCKFILE=/home/app/web/sock
 USER=root                                               
 GROUP=root
-NUM_WORKERS=3  
+NUM_WORKERS=1  
 
 echo "Starting $NAME"
 
@@ -20,6 +20,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your unicorn
 exec gunicorn wsgi:app -b 127.0.0.1:8000 \
+  -k eventlet \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
